@@ -13,3 +13,6 @@ models/
 .dvc/cache/
 
 .ipynb_checkpoints/
+
+mlflow.db
+mlruns/
