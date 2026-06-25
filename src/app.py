@@ -1,5 +1,8 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from prometheus_client import Counter, generate_latest
+from fastapi import Response
+
 import pandas as pd
 import joblib
 
@@ -11,6 +14,11 @@ app = FastAPI(
 # Load trained model
 model = joblib.load("models/model.pkl")
 
+# Prometheus Counter
+REQUEST_COUNT = Counter(
+    "prediction_requests_total",
+    "Total prediction requests"
+)
 
 class MachineInput(BaseModel):
     Type: int
@@ -43,6 +51,9 @@ def health():
 @app.post("/predict")
 def predict(data: MachineInput):
 
+    REQUEST_COUNT.inc()
+    print("Endpoint")
+
     df = pd.DataFrame([{
         "Type": data.Type,
         "Air temperature [K]": data.air_temperature,
@@ -62,3 +73,10 @@ def predict(data: MachineInput):
     return {
         "machine_failure_prediction": int(prediction)
     }
+
+@app.get("/metrics")
+def metrics():
+    return Response(
+        generate_latest(),
+        media_type="text/plain"
+    )

@@ -1,0 +1,50 @@
+{
+    "Type": {
+        "p_value": 0.9949488503265719,
+        "drift_detected": false
+    },
+    "Air temperature [K]": {
+        "p_value": 0.9978825302223162,
+        "drift_detected": false
+    },
+    "Process temperature [K]": {
+        "p_value": 0.6651832402447956,
+        "drift_detected": false
+    },
+    "Rotational speed [rpm]": {
+        "p_value": 0.7645162090736787,
+        "drift_detected": false
+    },
+    "Torque [Nm]": {
+        "p_value": 0.4032153226355176,
+        "drift_detected": false
+    },
+    "Tool wear [min]": {
+        "p_value": 0.20893086007671244,
+        "drift_detected": false
+    },
+    "TWF": {
+        "p_value": 1.0,
+        "drift_detected": false
+    },
+    "HDF": {
+        "p_value": 1.0,
+        "drift_detected": false
+    },
+    "PWF": {
+        "p_value": 1.0,
+        "drift_detected": false
+    },
+    "OSF": {
+        "p_value": 1.0,
+        "drift_detected": false
+    },
+    "RNF": {
+        "p_value": 1.0,
+        "drift_detected": false
+    },
+    "Machine failure": {
+        "p_value": 1.0,
+        "drift_detected": false
+    }
+}
